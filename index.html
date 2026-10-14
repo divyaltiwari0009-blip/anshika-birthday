@@ -1,468 +1,565 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f9dce8">
 <title>Happy Birthday Anshika ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:'DM Sans',sans-serif;
+ color:#75445f;
+ background:linear-gradient(135deg,#fff0f5,#f4d8eb,#e9e1ff);
+ overflow-x:hidden;
+ text-align:center;
 }
-
-body {
-  font-family: 'Trebuchet MS', sans-serif;
-  background: #fff0f5;
-  color: #713d58;
-  text-align: center;
-  overflow-x: hidden;
+button{cursor:pointer;font:inherit}
+.hidden{display:none!important}
+#ambient{position:fixed;inset:0;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;width:min(900px,92%);margin:auto;padding:35px 0 60px}
+h1{font:clamp(3rem,10vw,6rem) 'Great Vibes';color:#c45e89;margin:20px 0;text-shadow:0 8px 20px #c45e8940}
+h2{font:clamp(1.5rem,5vw,2.2rem) 'Playfair Display';color:#a64e76}
+p{line-height:1.8}
+.hero{padding:30px 10px}
+.hero p{max-width:550px;margin:auto;color:#946b82}
+.eyebrow{letter-spacing:3px;font-size:12px}
+.panel{
+ background:#ffffffb9;
+ border:1px solid white;
+ border-radius:26px;
+ padding:28px 20px;
+ margin:25px 0;
+ box-shadow:0 15px 45px #a45c7c20;
+ backdrop-filter:blur(12px);
 }
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 35px 20px;
-  background: linear-gradient(145deg, #ffe0ec, #fff4f8, #fbd5e5);
-  position: relative;
+.primary{
+ border:0;border-radius:30px;
+ background:linear-gradient(120deg,#df83a7,#aa79c7);
+ color:white;padding:13px 23px;
+ margin:8px;box-shadow:0 8px 18px #b76c9140;
 }
-
-.small {
-  font-size: 17px;
-  letter-spacing: 3px;
-  color: #a65d80;
+.primary:hover{transform:translateY(-2px)}
+.music{
+ position:fixed;top:12px;right:12px;z-index:10;
+ background:#fff;color:#a64e76;
+ border:1px solid white;border-radius:30px;padding:11px 15px;
 }
-
-h1 {
-  font-size: clamp(43px, 10vw, 75px);
-  color: #d65b91;
-  margin: 18px 0;
-  animation: heartbeat 2s infinite;
+.balloon-area{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;padding:25px 0}
+.balloon{
+ width:65px;height:95px;border:0;border-radius:50%;
+ color:white;font-size:24px;
+ box-shadow:inset -8px -8px 15px #0002,inset 8px 8px 15px #fff8;
+ animation:float 2.5s infinite ease-in-out;
 }
-
-h2 {
-  color: #c44f83;
-  margin-bottom: 18px;
-  font-size: 29px;
+.balloon:nth-child(1){background:#ed9dbd}
+.balloon:nth-child(2){background:#b6a1e5}
+.balloon:nth-child(3){background:#f5c1a9}
+.balloon:nth-child(4){background:#d779a2}
+.balloon:nth-child(5){background:#a9c8dc}
+@keyframes float{50%{transform:translateY(-15px)}}
+.balloon.popped{animation:pop .3s forwards}
+@keyframes pop{to{transform:scale(1.8);opacity:0}}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo{
+ position:relative;overflow:hidden;border-radius:16px;
+ aspect-ratio:4/5;background:#f4d9e7;
+ box-shadow:0 8px 20px #9b557b30;
 }
-
-p {
-  line-height: 1.8;
-  font-size: 16px;
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo span{
+ position:absolute;bottom:0;left:0;right:0;
+ padding:25px 5px 10px;color:white;
+ background:linear-gradient(transparent,#45223a99);
 }
-
-.hero p {
-  max-width: 520px;
-  margin: 10px auto 25px;
+.photo:hover{transform:scale(1.04);transition:.3s}
+.envelope-stage{perspective:900px;margin:25px auto;width:270px;height:180px}
+.envelope{
+ width:100%;height:100%;position:relative;
+ background:#e99ab9;border:0;border-radius:8px;
+ box-shadow:0 15px 25px #9d527b40;
 }
-
-.heart {
-  font-size: 55px;
-  animation: heartbeat 1.5s infinite;
+.flap{
+ position:absolute;inset:0;background:#f5c1d5;
+ clip-path:polygon(0 0,100% 0,50% 65%);
+ transform-origin:top;transition:transform .8s;z-index:3;
 }
-
-button {
-  border: none;
-  background: #df77a5;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 10px;
-  box-shadow: 0 5px 15px #d65b9140;
-  transition: .3s;
+.envelope.open .flap{transform:rotateX(180deg)}
+.envelope:after{
+ content:'♥';position:absolute;z-index:4;
+ left:50%;top:50%;transform:translate(-50%,-50%);
+ font-size:32px;color:#fff;
 }
-
-button:hover {
-  transform: scale(1.07);
-  background: #c94f88;
+.letter{
+ max-width:650px;margin:20px auto;
+ padding:25px;
+ background:#fffaf9;
+ border:2px dashed #e8b2c8;
+ border-radius:18px;
+ text-align:left;
 }
-
-section {
-  padding: 65px 18px;
+.letter p{
+ font:clamp(1rem,3vw,1.15rem)/2 'Playfair Display',serif;
+ white-space:pre-wrap;
+ color:#80536c;
 }
-
-.card {
-  background: white;
-  max-width: 650px;
-  margin: 25px auto;
-  padding: 30px 22px;
-  border-radius: 25px;
-  box-shadow: 0 8px 25px #d65b9120;
+.sign{text-align:right;font:2rem 'Great Vibes';color:#bd5f86}
+.letter-editor{
+ margin-top:25px;padding:18px;
+ border-radius:15px;background:#fff0f5;
 }
-
-.message {
-  font-size: 20px;
-  line-height: 1.9;
-  color: #9b4b70;
+.letter-editor label{display:block;margin:15px 0 7px;font-weight:600}
+.letter-editor textarea,.letter-editor input{
+ width:100%;padding:13px;border:1px solid #e5b4c8;
+ border-radius:12px;background:white;
+ color:#75445f;font:inherit;
 }
-
-.gallery {
-  max-width: 950px;
-  margin: 30px auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  padding: 10px;
+.letter-editor textarea{resize:vertical;line-height:1.7}
+.preview{
+ background:#fff;border-radius:12px;padding:15px;
+ white-space:pre-wrap;min-height:90px;
+ text-align:left;line-height:1.8;
 }
-
-.photo {
-  background: white;
-  padding: 10px 10px 18px;
-  border-radius: 13px;
-  box-shadow: 0 5px 18px #b85e8520;
-  animation: fadeUp .8s both;
-  transition: transform .3s;
+.kitten-stage{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+.kitty{font-size:75px;animation:float 1.5s infinite}
+.kitty.singing{animation:sing .3s infinite alternate}
+@keyframes sing{to{transform:scale(1.12) rotate(5deg)}}
+.lyrics{font:2rem 'Great Vibes';color:#bd5f86;margin:20px}
+.petal{
+ position:fixed;top:-20px;z-index:2;
+ width:13px;height:18px;background:#edabc7;
+ border-radius:80% 0 80% 0;
+ animation:fall linear forwards;pointer-events:none;
 }
-
-.photo:nth-child(2) { animation-delay: .1s; }
-.photo:nth-child(3) { animation-delay: .2s; }
-.photo:nth-child(4) { animation-delay: .3s; }
-.photo:nth-child(5) { animation-delay: .4s; }
-.photo:nth-child(6) { animation-delay: .5s; }
-
-.photo:hover {
-  transform: translateY(-7px) rotate(-1deg);
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+.confetti{
+ position:fixed;top:-15px;width:9px;height:13px;
+ z-index:20;pointer-events:none;
+ animation:confetti 3s linear forwards;
 }
-
-.photo img {
-  display: block;
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 9px;
-  background: #ffe0ec;
-}
-
-.photo span {
-  display: block;
-  margin-top: 12px;
-  font-size: 15px;
-  color: #b65c83;
-}
-
-.letter {
-  max-width: 650px;
-  margin: auto;
-  background: #fff;
-  padding: 30px 22px;
-  border-radius: 25px;
-  line-height: 2;
-  box-shadow: 0 5px 20px #d65b9120;
-}
-
-footer {
-  padding: 35px 15px;
-  background: #fbd5e5;
-  color: #9b4b70;
-}
-
-.hidden {
-  display: none;
-}
-
-#finalMessage {
-  margin-top: 20px;
-  font-size: 21px;
-  color: #c94f88;
-  line-height: 1.8;
-}
-
-.float {
-  position: fixed;
-  bottom: -30px;
-  pointer-events: none;
-  z-index: 5;
-  animation: rise 5s linear forwards;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-}
-
-@keyframes rise {
-  to {
-    transform: translateY(-110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media(max-width: 480px) {
-  .gallery {
-    gap: 10px;
-    padding: 5px;
-  }
-
-  .photo {
-    padding: 7px 7px 13px;
-  }
-
-  .photo img {
-    height: 155px;
-  }
-
-  section {
-    padding: 45px 12px;
-  }
+@keyframes confetti{to{transform:translateY(110vh) rotate(800deg);opacity:0}}
+footer{padding:25px;color:#a16d85;font-size:13px}
+@media(max-width:600px){
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .panel{padding:20px 14px}
 }
 </style>
 </head>
 
 <body>
+<div id="ambient"></div>
+<button class="music" id="musicBtn">♫ Play Music</button>
 
-<div class="hero">
-  <div class="small">A LITTLE SURPRISE FOR YOU</div>
-  <div class="heart">💗</div>
+<main class="wrap">
 
-  <h1>Happy Birthday</h1>
-  <h2>Anshika ♥️</h2>
+<header class="hero">
+ <div class="eyebrow">A LITTLE WORLD MADE JUST FOR YOU ✨</div>
+ <h1>Happy Birthday Anshika</h1>
+ <h2>To my favourite kind of magic ♥</h2>
+ <p>
+ Some people make ordinary days feel magical.
+ Today, this little universe is all yours.
+ Make a wish, smile and enjoy your surprises. 💗
+ </p>
+</header>
 
-  <p>
-    Today is all about celebrating someone
-    who makes the world a little more beautiful.
-  </p>
+<!-- BALLOONS -->
+<section class="panel" id="balloonPanel">
+ <h2>Pop Your Birthday Wishes 🎈</h2>
+ <p>Tap all five balloons to unlock your surprise!</p>
 
-  <button onclick="openSurprise()">
-    Open Your Surprise 🎁
-  </button>
+ <div class="balloon-area" id="balloons">
+  <button class="balloon">♥</button>
+  <button class="balloon">✦</button>
+  <button class="balloon">♥</button>
+  <button class="balloon">✧</button>
+  <button class="balloon">♥</button>
+ </div>
 
-  <button onclick="musicToggle()" id="musicButton">
-    ♫ Play Music
-  </button>
-</div>
-
-<section id="surprise" class="hidden">
-  <h2>For Someone Special 💕</h2>
-
-  <div class="card">
-    <p class="message">
-      A little surprise for someone most precious to me
-      who makes the world more beautiful.
-
-      <br><br>
-      Happy Birthday my bacchaa❤️
-
-      <br><br>
-      May your smile always shine,
-      may your dreams come true,
-      and may happiness always find its way to you.
-    </p>
-  </div>
+ <p id="progress">0 / 5 balloons popped</p>
+ <button class="primary" id="skip">Unlock Surprise ✨</button>
 </section>
 
-<section>
-  <h2>Our Little Memories 📸</h2>
-  <p>Every picture holds a little piece of happiness.</p>
+<!-- PHOTOS -->
+<section class="panel hidden" id="galleryPanel">
+ <h2>A Little Gallery of You 📸</h2>
+ <p>Six memories, a million reasons to smile.</p>
 
-  <div class="gallery">
+ <div class="gallery">
+  <div class="photo"><img src="photo1.jpg" onerror="this.style.display='none'"><span>Beautiful memories ♥</span></div>
+  <div class="photo"><img src="photo2.jpg" onerror="this.style.display='none'"><span>Little moments ✨</span></div>
+  <div class="photo"><img src="photo3.jpg" onerror="this.style.display='none'"><span>Pure happiness</span></div>
+  <div class="photo"><img src="photo4.jpg" onerror="this.style.display='none'"><span>Simply special</span></div>
+  <div class="photo"><img src="photo5.jpg" onerror="this.style.display='none'"><span>That lovely smile</span></div>
+  <div class="photo"><img src="photo6.jpg" onerror="this.style.display='none'"><span>Forever favourite ♥</span></div>
+ </div>
 
-    <div class="photo">
-      <img src="photo1.jpg" alt="Memory 1">
-      <span>Memory 01 💗</span>
-    </div>
-
-    <div class="photo">
-      <img src="photo2.jpg" alt="Memory 2">
-      <span>Memory 02 🌸</span>
-    </div>
-
-    <div class="photo">
-      <img src="photo3.jpg" alt="Memory 3">
-      <span>Memory 03 ✨</span>
-    </div>
-
-    <div class="photo">
-      <img src="photo4.jpg" alt="Memory 4">
-      <span>Memory 04 🦋</span>
-    </div>
-
-    <div class="photo">
-      <img src="photo5.jpg" alt="Memory 5">
-      <span>Memory 05 💕</span>
-    </div>
-
-    <div class="photo">
-      <img src="photo6.jpg" alt="Memory 6">
-      <span>Memory 06 🎀</span>
-    </div>
-
-  </div>
+ <button class="primary" id="toEnvelope">Open Your Letter 💌</button>
 </section>
 
-<section>
-  <h2>A Little Birthday Letter 💌</h2>
+<!-- ENVELOPE AND LETTER -->
+<section class="panel hidden" id="envelopePanel">
+ <h2>A Letter, Sealed With Love 💌</h2>
+ <p>Tap the envelope to open your surprise.</p>
 
-  <div class="letter">
-    <p>
-      Dear Anshika,
-
-      <br><br>
-      Some people make ordinary moments feel special,
-      and you are one of those people.
-
-      <br><br>
-      I hope this birthday brings you countless reasons
-      to smile, beautiful memories, and everything
-      your heart wishes for.
-
-      <br><br>
-      Keep smiling, keep shining and always stay the
-      wonderful person you are.
-
-      <br><br>
-      With lots of love,
-      <br>
-      <b>Divyal 🧿</b>
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>One Last Surprise 🎀</h2>
-
-  <button onclick="finalSurprise()">
-    Tap for a little magic ✨
+ <div class="envelope-stage">
+  <button class="envelope" id="envelope">
+   <div class="flap"></div>
   </button>
+ </div>
 
-  <div id="finalMessage" class="hidden">
-    You are special. Never forget that! ❤️
-    <br>
-    Happy Birthday once again, bacchaa! 🥹
+ <div class="letter hidden" id="letter">
+
+  <h2 style="text-align:center">For Anshika ❤️</h2>
+
+  <!-- LETTER DISPLAY -->
+  <div id="letterDisplay">
+   <p id="letterText"></p>
+   <div class="sign" id="signature">With love, Divyal 🧿</div>
   </div>
+
+  <!-- LETTER EDITOR -->
+  <div class="letter-editor" id="letterEditor">
+
+   <h3>✍️ Personalise Your Letter</h3>
+   <p>Write whatever your heart wants to say.</p>
+
+   <label>Your Birthday Message</label>
+   <textarea id="customMessage" rows="10">A little surprise for someone most precious to me,
+who makes the world more beautiful just by being in it.
+
+Anshika, I hope this new year of your life brings you
+the softest mornings, the loudest laughter,
+beautiful adventures and a hundred reasons to smile.
+
+Never forget how special you are.
+Keep shining, keep dreaming, and keep being wonderfully you.
+
+Happy Birthday my bacchaa ❤️</textarea>
+
+   <label>Your Signature</label>
+   <input id="customSignature" value="With love, Divyal 🧿">
+
+   <label>Live Preview</label>
+   <div class="preview" id="livePreview"></div>
+
+   <button class="primary" id="saveLetter">Save My Letter ❤️</button>
+  </div>
+
+  <button class="primary hidden" id="editLetter">✍️ Edit Letter</button>
+
+ </div>
+
+ <button class="primary hidden" id="toKittens">
+  One Last Surprise 🐱
+ </button>
+</section>
+
+<!-- KITTENS -->
+<section class="panel hidden" id="kittenPanel">
+ <h2>A Tiny Birthday Concert! 🐾</h2>
+ <p>The fluffiest singers came especially for you!</p>
+
+ <div class="kitten-stage">
+  <div class="kitty" id="kitty1">🐱</div>
+  <div class="kitty" id="kitty2">😻</div>
+ </div>
+
+ <div class="lyrics" id="lyrics">
+  Ready, Birthday Girl? ♡
+ </div>
+
+ <button class="primary" id="sing">Sing Happy Birthday 🎶</button>
+ <button class="primary" id="finale">Make It Sparkle ✨</button>
 </section>
 
 <footer>
-  Made with lots of love ❤️
-  <br>
-  Especially for Anshika
-  <br><br>
-  From Divyal 🧿
+ Made with love by <b>Divyal 🧿</b><br>
+ Especially for Anshika ❤️
 </footer>
 
+</main>
+
 <script>
-let opened = false;
-let playing = false;
-let audioContext = null;
-let musicTimer = null;
-let noteIndex = 0;
+const $ = id => document.getElementById(id);
 
-function openSurprise() {
-  document.getElementById("surprise").classList.remove("hidden");
-  document.getElementById("surprise").scrollIntoView({
-    behavior: "smooth"
-  });
-
-  opened = true;
+function buzz(pattern=40){
+ if(navigator.vibrate) navigator.vibrate(pattern);
 }
 
-function finalSurprise() {
-  document.getElementById("finalMessage").classList.remove("hidden");
-  createHearts(15);
+function show(id){
+ $(id).classList.remove('hidden');
+ setTimeout(()=>$(id).scrollIntoView({
+  behavior:'smooth',block:'center'
+ }),100);
 }
 
-function createHearts(number) {
-  const emojis = ["💗", "💕", "🌸", "✨", "🦋", "💖"];
-
-  for (let i = 0; i < number; i++) {
-    const heart = document.createElement("div");
-    heart.className = "float";
-    heart.textContent = emojis[
-      Math.floor(Math.random() * emojis.length)
-    ];
-
-    heart.style.left = Math.random() * 95 + "vw";
-    heart.style.fontSize = (18 + Math.random() * 20) + "px";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6500);
-  }
+function confetti(amount=70){
+ const colors=['#f4a9c5','#c7b5f0','#f8d49b','#fff'];
+ for(let i=0;i<amount;i++){
+  const el=document.createElement('i');
+  el.className='confetti';
+  el.style.left=Math.random()*100+'vw';
+  el.style.background=colors[i%colors.length];
+  el.style.animationDelay=Math.random()*.7+'s';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),4000);
+ }
 }
 
-setInterval(() => {
-  createHearts(2);
-}, 1800);
-
-function musicToggle() {
-  if (playing) {
-    clearInterval(musicTimer);
-    playing = false;
-    document.getElementById("musicButton").textContent = "♫ Play Music";
-    return;
-  }
-
-  const AudioContextClass =
-    window.AudioContext || window.webkitAudioContext;
-
-  if (!AudioContextClass) {
-    alert("Music is not supported by this browser.");
-    return;
-  }
-
-  if (!audioContext) {
-    audioContext = new AudioContextClass();
-  }
-
-  if (audioContext.state === "suspended") {
-    audioContext.resume();
-  }
-
-  const notes = [
-    261.63, 329.63, 392.00, 329.63,
-    293.66, 349.23, 440.00, 349.23
-  ];
-
-  function playNote() {
-    if (!playing) return;
-
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-
-    oscillator.type = "sine";
-    oscillator.frequency.value = notes[noteIndex % notes.length];
-
-    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-    gain.gain.exponentialRampToValueAtTime(
-      0.07, audioContext.currentTime + 0.08
-    );
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001, audioContext.currentTime + 0.8
-    );
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + 0.85);
-
-    noteIndex++;
-  }
-
-  playing = true;
-  document.getElementById("musicButton").textContent = "♫ Pause Music";
-
-  playNote();
-  musicTimer = setInterval(playNote, 700);
+// FLOATING PETALS
+function petal(){
+ const el=document.createElement('i');
+ el.className='petal';
+ el.style.left=Math.random()*100+'vw';
+ el.style.animationDuration=(7+Math.random()*6)+'s';
+ document.body.appendChild(el);
+ setTimeout(()=>el.remove(),14000);
 }
+setInterval(petal,700);
+
+// BALLOON POPPING
+let popped=0;
+
+function popBalloon(button){
+ if(button.classList.contains('popped')) return;
+
+ button.classList.add('popped');
+ popped++;
+ $('progress').textContent=popped+' / 5 balloons popped';
+
+ buzz([25,35,25]);
+ confetti(12);
+
+ if(popped===5){
+  setTimeout(unlockGallery,500);
+ }
+}
+
+document.querySelectorAll('.balloon').forEach(b=>{
+ b.addEventListener('click',()=>popBalloon(b));
+});
+
+function unlockGallery(){
+ show('galleryPanel');
+ confetti(100);
+}
+
+$('skip').onclick=()=>{
+ document.querySelectorAll('.balloon').forEach(b=>b.classList.add('popped'));
+ popped=5;
+ unlockGallery();
+};
+
+// GALLERY TO LETTER
+$('toEnvelope').onclick=()=>{
+ show('envelopePanel');
+ buzz();
+};
+
+// ENVELOPE
+$('envelope').onclick=()=>{
+ if($('envelope').classList.contains('open'))return;
+
+ $('envelope').classList.add('open');
+ buzz([35,50,70]);
+
+ setTimeout(()=>{
+  show('letter');
+  $('letterEditor').classList.remove('hidden');
+  $('letterDisplay').classList.add('hidden');
+  updatePreview();
+ },700);
+};
+
+// LIVE LETTER PREVIEW
+function updatePreview(){
+ $('livePreview').textContent=$('customMessage').value;
+}
+
+$('customMessage').addEventListener('input',updatePreview);
+
+// SAVE LETTER
+$('saveLetter').onclick=()=>{
+ const message=$('customMessage').value.trim();
+ const signature=$('customSignature').value.trim();
+
+ if(!message){
+  alert('Please write your birthday message first ❤️');
+  return;
+ }
+
+ $('letterText').textContent=message;
+ $('signature').textContent=signature;
+
+ $('letterEditor').classList.add('hidden');
+ $('letterDisplay').classList.remove('hidden');
+
+ $('editLetter').classList.remove('hidden');
+ $('toKittens').classList.remove('hidden');
+
+ // Animated reveal
+ $('letterText').animate([
+  {opacity:0,transform:'translateY(20px)'},
+  {opacity:1,transform:'translateY(0)'}
+ ],{duration:1400,easing:'ease-out'});
+
+ buzz([40,30,60]);
+ confetti(35);
+};
+
+// EDIT LETTER AGAIN
+$('editLetter').onclick=()=>{
+ $('letterEditor').classList.remove('hidden');
+ $('letterDisplay').classList.add('hidden');
+ $('toKittens').classList.add('hidden');
+ updatePreview();
+ buzz();
+};
+
+// KITTEN SECTION
+$('toKittens').onclick=()=>{
+ show('kittenPanel');
+ confetti(60);
+ buzz([30,40,30]);
+};
+
+// ORIGINAL SOFT INSTRUMENTAL USING WEB AUDIO
+let audio=null,musicTimer=null,musicOn=false;
+let master=null;
+
+function startMusic(){
+ if(!audio){
+  audio=new(window.AudioContext||window.webkitAudioContext)();
+ }
+
+ audio.resume();
+
+ if(musicTimer)return;
+
+ master=audio.createGain();
+ master.gain.value=.045;
+ master.connect(audio.destination);
+
+ const chords=[
+  [261.63,329.63,392],
+  [220,261.63,329.63],
+  [174.61,220,261.63],
+  [196,246.94,293.66]
+ ];
+
+ let step=0;
+
+ musicTimer=setInterval(()=>{
+  const chord=chords[Math.floor(step/4)%4];
+  const freq=chord[step%3];
+  const now=audio.currentTime;
+
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+
+  osc.type='sine';
+  osc.frequency.value=freq/2;
+
+  gain.gain.setValueAtTime(.001,now);
+  gain.gain.linearRampToValueAtTime(.18,now+.2);
+  gain.gain.exponentialRampToValueAtTime(.001,now+1.3);
+
+  osc.connect(gain);
+  gain.connect(master);
+  osc.start(now);
+  osc.stop(now+1.4);
+
+  step++;
+ },450);
+}
+
+$('musicBtn').onclick=()=>{
+ musicOn=!musicOn;
+
+ if(musicOn){
+  startMusic();
+  $('musicBtn').textContent='♫ Music Playing';
+ }else{
+  clearInterval(musicTimer);
+  musicTimer=null;
+  if(master){
+   master.gain.setTargetAtTime(.001,audio.currentTime,.15);
+  }
+  $('musicBtn').textContent='♫ Play Music';
+ }
+
+ buzz(20);
+};
+
+// HAPPY BIRTHDAY MELODY
+const notes=[
+ 392,392,440,392,523,494,
+ 392,392,440,392,587,523,
+ 392,392,784,659,523,494,440,
+ 698,698,659,523,587,523
+];
+
+async function sing(){
+ if(!audio){
+  audio=new(window.AudioContext||window.webkitAudioContext)();
+ }
+ await audio.resume();
+
+ $('kitty1').classList.add('singing');
+ $('kitty2').classList.add('singing');
+
+ const beat=.34;
+
+ notes.forEach((freq,i)=>{
+  const time=audio.currentTime+i*beat;
+  const osc=audio.createOscillator();
+  const gain=audio.createGain();
+
+  osc.type='triangle';
+  osc.frequency.value=freq;
+
+  gain.gain.setValueAtTime(.001,time);
+  gain.gain.linearRampToValueAtTime(.13,time+.03);
+  gain.gain.exponentialRampToValueAtTime(.001,time+.28);
+
+  osc.connect(gain);
+  gain.connect(audio.destination);
+
+  osc.start(time);
+  osc.stop(time+.3);
+ });
+
+ $('lyrics').textContent='Happy Birthday to you! ♫';
+
+ setTimeout(()=>{
+  $('lyrics').textContent='Happy Birthday dear Anshika! 💗';
+ },3000);
+
+ setTimeout(()=>{
+  $('lyrics').textContent='Happy Birthday to you! 🎂';
+  $('kitty1').classList.remove('singing');
+  $('kitty2').classList.remove('singing');
+  confetti(80);
+ },6500);
+}
+
+$('sing').onclick=()=>{
+ sing();
+ buzz([30,40,30]);
+};
+
+$('finale').onclick=()=>{
+ confetti(180);
+ $('lyrics').textContent='May your whole year sparkle, Anshika! ✨';
+ buzz([60,40,60,40,120]);
+};
+
 </script>
-
 </body>
 </html>
