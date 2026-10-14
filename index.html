@@ -1,215 +1,468 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Anshika ❤️</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;font-family:'Trebuchet MS',sans-serif;
- background:#fff0f5;color:#75475c;text-align:center;
- overflow-x:hidden
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.hero{
- min-height:100vh;display:flex;flex-direction:column;
- justify-content:center;align-items:center;padding:30px 20px;
- background:linear-gradient(145deg,#ffe1ec,#fff5f8,#fbd5e5)
+
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background: #fff0f5;
+  color: #713d58;
+  text-align: center;
+  overflow-x: hidden;
 }
-.small{letter-spacing:4px;font-size:12px;color:#bd7898}
-h1{font-family:Georgia,serif;font-size:clamp(44px,12vw,75px);
- color:#c45c87;margin:15px 0}
-h2{font-family:Georgia,serif;color:#bd668b}
-p{line-height:1.8}
-.heart{font-size:55px;animation:beat 1.2s infinite}
-@keyframes beat{50%{transform:scale(1.2)}}
-button{
- border:0;border-radius:30px;padding:15px 25px;
- background:#d77ca1;color:white;font-size:16px;
- margin:10px;box-shadow:0 5px 15px #d77ca144;
- cursor:pointer
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  background: linear-gradient(145deg, #ffe0ec, #fff4f8, #fbd5e5);
+  position: relative;
 }
-button:active{transform:scale(.96)}
-section{padding:65px 20px;max-width:850px;margin:auto}
-.card{
- background:#fff;border-radius:25px;padding:28px;
- box-shadow:0 8px 30px #d99bb322;margin:20px auto;
- max-width:650px
+
+.small {
+  font-size: 17px;
+  letter-spacing: 3px;
+  color: #a65d80;
 }
-.message{font-family:Georgia,serif;font-size:19px}
-.gallery{
- display:grid;grid-template-columns:repeat(2,1fr);
- gap:13px;margin-top:25px
+
+h1 {
+  font-size: clamp(43px, 10vw, 75px);
+  color: #d65b91;
+  margin: 18px 0;
+  animation: heartbeat 2s infinite;
 }
-.photo{
- height:190px;border-radius:18px;overflow:hidden;
- background:linear-gradient(140deg,#f9c8da,#fceaf1);
- display:flex;align-items:center;justify-content:center;
- color:#9d5475;font-size:14px;position:relative
+
+h2 {
+  color: #c44f83;
+  margin-bottom: 18px;
+  font-size: 29px;
 }
-.photo img{width:100%;height:100%;object-fit:cover}
-.photo span{position:absolute;bottom:9px;background:#ffffffcc;
- padding:5px 10px;border-radius:15px}
-.letter{font-family:Georgia,serif;font-size:18px;line-height:1.9}
-footer{padding:35px;background:#f9dce8}
-.float{
- position:fixed;bottom:-30px;pointer-events:none;
- animation:rise 7s linear forwards;z-index:5
+
+p {
+  line-height: 1.8;
+  font-size: 16px;
 }
-@keyframes rise{
- to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+
+.hero p {
+  max-width: 520px;
+  margin: 10px auto 25px;
 }
-.hidden{display:none}
-@media(max-width:420px){
- .photo{height:155px}
- section{padding:50px 16px}
+
+.heart {
+  font-size: 55px;
+  animation: heartbeat 1.5s infinite;
+}
+
+button {
+  border: none;
+  background: #df77a5;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 5px 15px #d65b9140;
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.07);
+  background: #c94f88;
+}
+
+section {
+  padding: 65px 18px;
+}
+
+.card {
+  background: white;
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 30px 22px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px #d65b9120;
+}
+
+.message {
+  font-size: 20px;
+  line-height: 1.9;
+  color: #9b4b70;
+}
+
+.gallery {
+  max-width: 950px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 10px;
+}
+
+.photo {
+  background: white;
+  padding: 10px 10px 18px;
+  border-radius: 13px;
+  box-shadow: 0 5px 18px #b85e8520;
+  animation: fadeUp .8s both;
+  transition: transform .3s;
+}
+
+.photo:nth-child(2) { animation-delay: .1s; }
+.photo:nth-child(3) { animation-delay: .2s; }
+.photo:nth-child(4) { animation-delay: .3s; }
+.photo:nth-child(5) { animation-delay: .4s; }
+.photo:nth-child(6) { animation-delay: .5s; }
+
+.photo:hover {
+  transform: translateY(-7px) rotate(-1deg);
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #ffe0ec;
+}
+
+.photo span {
+  display: block;
+  margin-top: 12px;
+  font-size: 15px;
+  color: #b65c83;
+}
+
+.letter {
+  max-width: 650px;
+  margin: auto;
+  background: #fff;
+  padding: 30px 22px;
+  border-radius: 25px;
+  line-height: 2;
+  box-shadow: 0 5px 20px #d65b9120;
+}
+
+footer {
+  padding: 35px 15px;
+  background: #fbd5e5;
+  color: #9b4b70;
+}
+
+.hidden {
+  display: none;
+}
+
+#finalMessage {
+  margin-top: 20px;
+  font-size: 21px;
+  color: #c94f88;
+  line-height: 1.8;
+}
+
+.float {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 5;
+  animation: rise 5s linear forwards;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 480px) {
+  .gallery {
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .photo {
+    padding: 7px 7px 13px;
+  }
+
+  .photo img {
+    height: 155px;
+  }
+
+  section {
+    padding: 45px 12px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <div class="hero">
- <div class="small">A LITTLE SURPRISE FOR SOMEONE SPECIAL</div>
- <div class="heart">💗</div>
- <p>Today is all about you...</p>
- <h1>Anshika</h1>
- <p style="font-size:19px">Happy Birthday, my bacchaa! ❤️</p>
- <button onclick="openSurprise()">Open Your Surprise 🎁</button>
- <p style="font-size:12px">Made with love by Divyal 🧿</p>
-</div>
+  <div class="small">A LITTLE SURPRISE FOR YOU</div>
+  <div class="heart">💗</div>
 
-<div id="content" class="hidden">
+  <h1>Happy Birthday</h1>
+  <h2>Anshika ♥️</h2>
 
-<section>
- <div class="small">A SPECIAL DAY</div>
- <h2>Happy Birthday, Beautiful! 🌷</h2>
- <div class="card">
-  <div class="heart">❤️</div>
-  <p class="message">
-   A little surprise for someone most precious to me
-   who makes the world more beautiful.
-   <br><br>
-   Happy Birthday my bacchaa ❤️
-   <br><br>
-   May your smile always shine, your dreams come true,
-   and your life be filled with endless happiness.
-   You deserve all the beautiful things this world has to offer.
+  <p>
+    Today is all about celebrating someone
+    who makes the world a little more beautiful.
   </p>
-  <p>With lots of love,<br><b>Divyal 🧿</b></p>
- </div>
-</section>
 
-<section>
- <div class="small">LITTLE MOMENTS, BIG MEMORIES</div>
- <h2>Our Memory Gallery 📸</h2>
- <p>Six little spaces for six beautiful memories.</p>
- <div class="gallery">
-  <div class="photo"><img src="photo1.jpg" alt="Memory 1" onerror="this.remove()"><span>Memory 01 💗</span></div>
-  <div class="photo"><img src="photo2.jpg" alt="Memory 2" onerror="this.remove()"><span>Memory 02 🌸</span></div>
-  <div class="photo"><img src="photo3.jpg" alt="Memory 3" onerror="this.remove()"><span>Memory 03 ✨</span></div>
-  <div class="photo"><img src="photo4.jpg" alt="Memory 4" onerror="this.remove()"><span>Memory 04 🦋</span></div>
-  <div class="photo"><img src="photo5.jpg" alt="Memory 5" onerror="this.remove()"><span>Memory 05 💕</span></div>
-  <div class="photo"><img src="photo6.jpg" alt="Memory 6" onerror="this.remove()"><span>Memory 06 🎀</span></div>
- </div>
- <p style="font-size:12px">We'll add your six personal photographs here next.</p>
-</section>
+  <button onclick="openSurprise()">
+    Open Your Surprise 🎁
+  </button>
 
-<section>
- <div class="small">A LITTLE NOTE FROM ME</div>
- <h2>Just For You 💌</h2>
- <div class="card letter">
-  Dear Anshika,<br><br>
-  Some people make ordinary days feel special just by being themselves.
-  You are one of those rare people.
-  <br><br>
-  I hope this new chapter brings you countless reasons to smile,
-  beautiful adventures, unexpected happiness and dreams that turn into reality.
-  <br><br>
-  Never stop being the wonderful person you are.
-  Keep smiling, keep shining and always stay happy.
-  <br><br>
-  Happy Birthday once again, bacchaa! ❤️
-  <br><br>
-  Forever wishing the best for you,<br>
-  <b>Divyal 🧿</b>
- </div>
-</section>
-
-<section>
- <h2>One Last Surprise 🎁</h2>
- <p>Because you deserve a little extra happiness today.</p>
- <button onclick="finalSurprise()">Tap for a wish 💖</button>
- <div id="final" class="card hidden">
-  <div style="font-size:45px">🌷🦋💗</div>
-  <h2>You are special, Anshika!</h2>
-  <p>May your world always be as beautiful as your smile.</p>
-  <h2>Happy Birthday! ❤️</h2>
- </div>
-</section>
+  <button onclick="musicToggle()" id="musicButton">
+    ♫ Play Music
+  </button>
 </div>
+
+<section id="surprise" class="hidden">
+  <h2>For Someone Special 💕</h2>
+
+  <div class="card">
+    <p class="message">
+      A little surprise for someone most precious to me
+      who makes the world more beautiful.
+
+      <br><br>
+      Happy Birthday my bacchaa❤️
+
+      <br><br>
+      May your smile always shine,
+      may your dreams come true,
+      and may happiness always find its way to you.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Our Little Memories 📸</h2>
+  <p>Every picture holds a little piece of happiness.</p>
+
+  <div class="gallery">
+
+    <div class="photo">
+      <img src="photo1.jpg" alt="Memory 1">
+      <span>Memory 01 💗</span>
+    </div>
+
+    <div class="photo">
+      <img src="photo2.jpg" alt="Memory 2">
+      <span>Memory 02 🌸</span>
+    </div>
+
+    <div class="photo">
+      <img src="photo3.jpg" alt="Memory 3">
+      <span>Memory 03 ✨</span>
+    </div>
+
+    <div class="photo">
+      <img src="photo4.jpg" alt="Memory 4">
+      <span>Memory 04 🦋</span>
+    </div>
+
+    <div class="photo">
+      <img src="photo5.jpg" alt="Memory 5">
+      <span>Memory 05 💕</span>
+    </div>
+
+    <div class="photo">
+      <img src="photo6.jpg" alt="Memory 6">
+      <span>Memory 06 🎀</span>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>A Little Birthday Letter 💌</h2>
+
+  <div class="letter">
+    <p>
+      Dear Anshika,
+
+      <br><br>
+      Some people make ordinary moments feel special,
+      and you are one of those people.
+
+      <br><br>
+      I hope this birthday brings you countless reasons
+      to smile, beautiful memories, and everything
+      your heart wishes for.
+
+      <br><br>
+      Keep smiling, keep shining and always stay the
+      wonderful person you are.
+
+      <br><br>
+      With lots of love,
+      <br>
+      <b>Divyal 🧿</b>
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>One Last Surprise 🎀</h2>
+
+  <button onclick="finalSurprise()">
+    Tap for a little magic ✨
+  </button>
+
+  <div id="finalMessage" class="hidden">
+    You are special. Never forget that! ❤️
+    <br>
+    Happy Birthday once again, bacchaa! 🥹
+  </div>
+</section>
 
 <footer>
- Made with endless love ❤️<br>
- <b>Divyal 🧿 for Anshika</b>
+  Made with lots of love ❤️
+  <br>
+  Especially for Anshika
+  <br><br>
+  From Divyal 🧿
 </footer>
 
-<button id="music" style="position:fixed;bottom:15px;right:12px;
- z-index:8;padding:12px 17px" onclick="musicToggle()">♫ Music ON</button>
-
 <script>
-let opened=false,playing=false,ctx,timer;
-function openSurprise(){
- document.getElementById('content').classList.remove('hidden');
- opened=true;
- document.getElementById('content').scrollIntoView({behavior:'smooth'});
- musicToggle();
-}
-function finalSurprise(){
- document.getElementById('final').classList.remove('hidden');
- for(let i=0;i<35;i++)heart();
-}
-function heart(){
- let e=document.createElement('div');
- e.className='float';
- e.innerHTML=['💗','💕','🌸','✨','🦋'][Math.floor(Math.random()*5)];
- e.style.left=Math.random()*100+'vw';
- e.style.fontSize=(16+Math.random()*20)+'px';
- document.body.appendChild(e);
- setTimeout(()=>e.remove(),7000);
-}
-setInterval(()=>{if(opened)heart()},1300);
+let opened = false;
+let playing = false;
+let audioContext = null;
+let musicTimer = null;
+let noteIndex = 0;
 
-function musicToggle(){
- if(playing){
-  clearInterval(timer);
-  playing=false;
-  document.getElementById('music').innerText='♫ Music ON';
-  return;
- }
- try{
-  ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
-  if(ctx.state==='suspended')ctx.resume();
-  playing=true;
-  document.getElementById('music').innerText='♫ Music OFF';
-  const notes=[261.63,329.63,392,329.63,293.66,349.23,392,349.23];
-  let n=0;
-  timer=setInterval(()=>{
-   if(!playing)return;
-   let osc=ctx.createOscillator();
-   let gain=ctx.createGain();
-   osc.type='sine';
-   osc.frequency.value=notes[n++%notes.length];
-   gain.gain.setValueAtTime(.0001,ctx.currentTime);
-   gain.gain.exponentialRampToValueAtTime(.045,ctx.currentTime+.08);
-   gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.1);
-   osc.connect(gain);gain.connect(ctx.destination);
-   osc.start();osc.stop(ctx.currentTime+1.2);
-  },650);
- }catch(e){
-  document.getElementById('music').innerText='Music unavailable';
- }
+function openSurprise() {
+  document.getElementById("surprise").classList.remove("hidden");
+  document.getElementById("surprise").scrollIntoView({
+    behavior: "smooth"
+  });
+
+  opened = true;
+}
+
+function finalSurprise() {
+  document.getElementById("finalMessage").classList.remove("hidden");
+  createHearts(15);
+}
+
+function createHearts(number) {
+  const emojis = ["💗", "💕", "🌸", "✨", "🦋", "💖"];
+
+  for (let i = 0; i < number; i++) {
+    const heart = document.createElement("div");
+    heart.className = "float";
+    heart.textContent = emojis[
+      Math.floor(Math.random() * emojis.length)
+    ];
+
+    heart.style.left = Math.random() * 95 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6500);
+  }
+}
+
+setInterval(() => {
+  createHearts(2);
+}, 1800);
+
+function musicToggle() {
+  if (playing) {
+    clearInterval(musicTimer);
+    playing = false;
+    document.getElementById("musicButton").textContent = "♫ Play Music";
+    return;
+  }
+
+  const AudioContextClass =
+    window.AudioContext || window.webkitAudioContext;
+
+  if (!AudioContextClass) {
+    alert("Music is not supported by this browser.");
+    return;
+  }
+
+  if (!audioContext) {
+    audioContext = new AudioContextClass();
+  }
+
+  if (audioContext.state === "suspended") {
+    audioContext.resume();
+  }
+
+  const notes = [
+    261.63, 329.63, 392.00, 329.63,
+    293.66, 349.23, 440.00, 349.23
+  ];
+
+  function playNote() {
+    if (!playing) return;
+
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.value = notes[noteIndex % notes.length];
+
+    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(
+      0.07, audioContext.currentTime + 0.08
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001, audioContext.currentTime + 0.8
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.85);
+
+    noteIndex++;
+  }
+
+  playing = true;
+  document.getElementById("musicButton").textContent = "♫ Pause Music";
+
+  playNote();
+  musicTimer = setInterval(playNote, 700);
 }
 </script>
+
 </body>
 </html>
